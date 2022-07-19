@@ -9,6 +9,7 @@ import {
     Icon,
     UserGreeting,
     UserName,
+    HighlightCards,
 
 
 
@@ -33,7 +34,13 @@ export function Dashboard() {
                 <Icon name="power"/>
                 </UserWrapper>
             </Header>
-            <<HighlightCard />
+            <HighlightCards 
+             >
+             <HighlightCard/>
+             <HighlightCard/>
+             <HighlightCard/>
+            </HighlightCards>
+           
         </Container>
     )
 }
