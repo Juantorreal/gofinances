@@ -42,7 +42,7 @@ export function Dashboard() {
     {   id: '2',
         type: 'negative',
         title:"Desenvolvimento de site",
-    amount:"1btc",
+    amount:"2btc",
     category:{
         name: 'Alimento',
         icon: 'coffee'
@@ -50,9 +50,9 @@ export function Dashboard() {
     date:"12/12/21"},
     {   
         id: '3',
-        type: 'positive',
+        type: 'negative',
         title:"Desenvolvimento de site",
-    amount:"1btc",
+    amount:"3btc",
     category:{
         name: 'Casa',
         icon: 'shopping-bag'
