@@ -20,18 +20,45 @@ import {
 } from "./styles";
 import { RFValue } from "react-native-responsive-fontsize";
 import { HighlightCard } from "../../components/HighlightCard";
-import { TransactionCard } from "../../components/TransactionCard";
+import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
+
+
+export interface DataListProps extends TransactionCardProps {
+ id: string;
+}
 
 export function Dashboard() {
 
-    const data = [{ 
+    const data: DataListProps[] = [{ 
+        id:"1",
+        type: 'positive',
         title:"Desenvolvimento de site",
     amount:"1btc",
     category:{
         name: 'vendas',
         icon: 'dollar-sign'
     },
-    date:"12/12/21"}]
+    date:"12/12/21"},
+    {   id: '2',
+        type: 'negative',
+        title:"Desenvolvimento de site",
+    amount:"1btc",
+    category:{
+        name: 'Alimento',
+        icon: 'coffee'
+    },
+    date:"12/12/21"},
+    {   
+        id: '3',
+        type: 'positive',
+        title:"Desenvolvimento de site",
+    amount:"1btc",
+    category:{
+        name: 'Casa',
+        icon: 'shopping-bag'
+    },
+    date:"12/12/21"}
+]
     return (
         <Container>
             <Header>
@@ -49,7 +76,9 @@ export function Dashboard() {
             </Header>
             <HighlightCards 
              >
-             <HighlightCard title="Entradas" 
+             <HighlightCard 
+             
+             title="Entradas" 
              amount="R$17.400,00"
               lastTransaction="Última entrada dia 13 de Abril"
               type="up" />
@@ -67,8 +96,11 @@ export function Dashboard() {
             <Transactions>
                 <Title>Listagem</Title>
                 <TransactionList data={data}
-                renderItem={({item}) => <TransactionCard data={item}}
-                />
+                keyExtractor={(item: { id: DataListProps; }) => item.id}
+                renderItem={({item}) => <TransactionCard data={item}/>}
+              
+
+                
 
 
                 

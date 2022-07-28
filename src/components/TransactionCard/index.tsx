@@ -10,7 +10,7 @@ Date
 
 
 
- } from "./style";
+ } from "./styles";
 
  interface  Category {
     name: string;
@@ -19,11 +19,18 @@ Date
  }
 
 
- interface Props {
-   data: { title: string;
+ export interface TransactionCardProps {
+   
+    type: "positive"|"negative";
+    title: string;
     amount: string;
     category: Category;
-    date: string;}
+    date: string;
+
+ }
+
+ interface Props {
+    data: TransactionCardProps;
 
  }
 
@@ -33,11 +40,14 @@ export function TransactionCard({data}: Props){
             <Title>
                 {data.title}
             </Title>
-            <Amount>{data.amount}</Amount>
+            <Amount data={data.type}>{
+          data.type === 'negative' && '- ' }
+          {data.amount}
+          </Amount>
 
             <Footer>
                 <Category>
-                    <Icon nae="dollar-sign"/>
+                    <Icon name={data.category.icon}/>
                     <CategoryName>{data.category.name}</CategoryName>
                 </Category>
                 
